@@ -14,11 +14,11 @@ if __name__ == '__main__':
             if(raw_string_s.index("}")>=0 and raw_string_s.index("{")==0):
                 raw_string_s = raw_string_s[0:raw_string_s.index("}")+1]
                 raw_string_j = json.loads(raw_string_s)
-                print(">> ",raw_string_j["Sensor_id"]," = ",raw_string_j["Value"])
+                print(">> ","Presion"," = ",raw_string_j["Value"])
                 value= float(raw_string_j["Value"])
                 presion.append(value)
-                if keyboard.is_pressed('p'):
-                    print('se presionó [p]arar!')
+                if keyboard.is_pressed('ESC'):
+                    print('se presionó esc!')
                     break  
             else:
                 print("error/ no } found.")

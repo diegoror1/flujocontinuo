@@ -24,7 +24,7 @@ void SerialEvent(long value){
     inputString += inputChar;                       
     }
     if(inputString.indexOf("getValue")>=0){
-      String json_data = "{\"Sensor_id\":\"Presion\",\"Value\":" + (String)value+ "}";
+      String json_data = "{\"Value\":" + (String)value+ "}";
       Serial.println(json_data);  
     } 
     inputString = "";
