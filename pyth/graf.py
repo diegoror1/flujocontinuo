@@ -14,7 +14,6 @@ while True:
         def animate(i,xdatos,ydatos):
             datos = arduinoSerialData.readline()
             datos = float (datos)
-            print(datos)
             xdatos.append(i)
             ydatos.append(datos)
             ax.clear()
