@@ -3,7 +3,7 @@
 import serial, time, json
 import keyboard
 hw_sensor = serial.Serial(port='COM3', baudrate=115200, timeout=1, write_timeout=1)
-data = []
+presion = []
 if __name__ == '__main__':
     while True:
         hw_sensor.write('getValue'.encode('utf-8'))
@@ -16,7 +16,7 @@ if __name__ == '__main__':
                 raw_string_j = json.loads(raw_string_s)
                 print(">> ",raw_string_j["Sensor_id"]," = ",raw_string_j["Value"])
                 value= float(raw_string_j["Value"])
-                data.append(value)
+                presion.append(value)
                 if keyboard.is_pressed('p'):
                     print('se presionó [p]arar!')
                     break  
@@ -25,5 +25,7 @@ if __name__ == '__main__':
         except:
             print("Exception occurred, somthing wrong...")
     hw_sensor.close()
+    data = {'presion':presion,
+        }
     with open('data.json', 'w') as file:
         json.dump(data, file, indent=4)
